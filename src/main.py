@@ -1,4 +1,5 @@
 from textnode import TextNode, TextType
+from htmlnode import HTMLNode
 
 def main():
     # Test different node types
@@ -10,6 +11,13 @@ def main():
     print(text_node)
     print(bold_node)
     print(link_node)
+
+    #Test different htmlnode types
+    html_node = HTMLNode("p")
+
+    # Print them to test your __repr__ method
+    print(html_node)
+
     
     # Test equality
     node1 = TextNode("Same text", TextType.TEXT, None)
