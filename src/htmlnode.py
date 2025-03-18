@@ -5,6 +5,7 @@ class HTMLNode():
         self.children = children #A list of HTMLNode objects representing the children of this node
         self.props = props #A dictionary of key-value pairs representing the attributes of the HTML tag. For example, a link (<a> tag) might have {"href": "https://www.google.com"}
 
+
     def to_html(self):
         raise NotImplementedError
     
@@ -20,3 +21,20 @@ class HTMLNode():
     def __repr__(self):
         return f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.props})"
         pass
+
+class LeafNode(HTMLNode):
+    def __init__(self, tag, value):
+        super().__init__(value)
+        super().__init__(tag)
+        self.tag = tag
+        self.value = value
+
+    def to_html(self):
+        
+        if self.value == "":
+            raise ValueError
+        elif self.tag == None:
+            return self.value
+        else:
+            return f"<{self.tag}>{self.value}</{self.tag}>"
+
