@@ -1,5 +1,7 @@
 from textnode import TextNode, TextType
-from htmlnode import HTMLNode
+from htmlnode import HTMLNode, ParentNode, LeafNode
+from convert_txt_2_html import *
+
 
 def main():
     # Test different node types
@@ -12,13 +14,15 @@ def main():
     print(bold_node)
     print(link_node)
 
+    #test new function
+    text_node_to_html_node(text_node)
+
     #Test different htmlnode types
     html_node = HTMLNode("p")
 
     # Print them to test your __repr__ method
     print(html_node)
 
-    
     # Test equality
     node1 = TextNode("Same text", TextType.TEXT, None)
     node2 = TextNode("Same text", TextType.TEXT, None)

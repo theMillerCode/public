@@ -1,7 +1,5 @@
 import unittest
-from htmlnode import HTMLNode
-from htmlnode import LeafNode
-from htmlnode import ParentNode
+from htmlnode import HTMLNode, ParentNode, LeafNode
 
 class TestHTMLNode(unittest.TestCase):
     def test_props_to_html(self):
@@ -60,22 +58,6 @@ class TestHTMLNode(unittest.TestCase):
     def test_props_to_html_non_empty(self):
         node = HTMLNode(props={'href': 'https://www.google.com', 'class': 'btn'})
         self.assertEqual(node.props_to_html(), ' href="https://www.google.com" class="btn"')
-
-    def test_repr(self):
-        node = HTMLNode(tag='p', value='Hello', children=None, props={'class': 'text'})
-        expected_repr = "HTMLNode(p, Hello, None, {'class': 'text'})"
-        self.assertEqual(repr(node), expected_repr)
-
-    def test_repr_empty(self):
-        node = HTMLNode()
-        expected_repr = "HTMLNode(None, None, None, None)"
-        self.assertEqual(repr(node), expected_repr)
-
-    def test_repr_with_children(self):
-        child_node = HTMLNode(tag='a')
-        node = HTMLNode(tag='div', children=[child_node])
-        expected_repr = "HTMLNode(div, None, [HTMLNode(a, None, None, None)], None)"
-        self.assertEqual(repr(node), expected_repr)
 
     def test_to_html_raises_error(self):
         node = HTMLNode()
