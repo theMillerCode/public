@@ -4,19 +4,20 @@ from convert_txt_2_html import *
 from split_nodes_delimiter import *
 from regex_fun import *
 
-text1 = "This is text with a ![rick roll](https://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)"
+#text1 = "This is text with a ![rick roll](https://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)"
 #text = "My email is lane@example.com and my friend's email is hunter@example.com"
-text2 = "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)"
+#text2 = "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)"
+text = "This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
 
-node_link = TextNode(
-    "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)",
-    TextType.TEXT,
-)
+#node_link = TextNode(
+#    "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)",
+#    TextType.TEXT,
+#)
 
-node_image = TextNode(
-        "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
-        TextType.TEXT,
-    )
+#node_image = TextNode(
+#        "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png) and another ![second image](https://i.imgur.com/3elNhQu.png)",
+#        TextType.TEXT,
+#    )
 
 # [("to boot dev", "https://www.boot.dev"), ("to youtube", "https://www.youtube.com/@bootdotdev")]
 
@@ -28,9 +29,11 @@ def main():
     #test_node = TextNode("This `is text` with a `code block` word", TextType.TEXT)
     #new_nodes = split_nodes_delimiter([test_node], "`", TextType.CODE)
 
-    split_nodes_image([node_image])
+    #split_nodes_image([node_image])
 
     #split_nodes_link(node_link)
+
+    print(text_to_textnodes(text))
 
 
 main()
